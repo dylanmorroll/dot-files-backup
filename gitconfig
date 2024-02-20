@@ -1,0 +1,72 @@
+[user]
+    name = Dylan Morroll
+[user]
+    email = dylan@spectral.energy
+
+[bugtraq]
+url = ""
+label = Tracker ID:
+append = true
+number = true
+warnifnoissue = true
+message = ""
+
+[http]
+    sslVerify = false
+
+[core]
+    longpaths = true
+	editor = vim
+    
+[pull]
+    rebase = true
+
+[alias]
+rpo = remote prune origin
+st = status
+readd = update-index --again
+stashall = stash --include-untracked
+
+br = branch
+# bra = branch -a
+# brd = branch -d
+# brD = branch -D
+
+cm = commit
+# cm = commit -m
+# cma = commit -am
+
+co = checkout
+# coc = checkout && git clean -fd
+# cob = checkout -b
+# cosm = checkout --recurse-submodules
+# com = submodule foreach --recursive 'git checkout master'
+# cosbp = submodule foreach --recursive 'git checkout sbp-version || git checkout master'
+
+# sm = submodule
+# subinit = submodule init --recursive
+# subinupdate = submodule update --init --recursive
+# subupdateforce = submodule update --force --recursive
+# subpull = submodule foreach --recursive 'git pull'
+# substatus = submodule foreach --recursive 'git status -sb'
+# substash = submodule foreach --recursive 'git stash'
+# subreset = submodule foreach --recursive 'git submodule update --init'
+
+mylog = log --author=dylan --no-merges --first-parent
+head = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+[advice]
+	addIgnoredFile = false
+[push]
+	autoSetupRemote = true
+[safe]
+	directory = /mnt/E6E09277E0924DA5/Documents/backups/joplin/joplin-backup-repo
+	directory = /mnt/E6E09277E0924DA5/Documents/LocalBackups/joplin/joplin-backup-repo
+	directory = /mnt/E6E09277E0924DA5/.LocalBackups/joplin/joplin-backup-repo
+	directory = /mnt/E6E09277E0924DA5/Documents/Repos/rekordbox
+	directory = /mnt/E6E09277E0924DA5
+	directory = /mnt/E6E09277E0924DA5/Documents/Repos/rekordbox
+	directory = /mnt/E6E09277E0924DA5/Documents/Repos/cpython
+	directory = /mnt/E6E09277E0924DA5/.LocalBackups/joplin/automated-backup
+[url "git@gitlab.spectral.energy:"]
+	insteadOf = https://gitlab.spectral.energy/
