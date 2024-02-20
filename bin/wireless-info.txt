@@ -1,0 +1,2316 @@
+
+########## wireless info START ##########
+
+Report from: 16 Feb 2024 08:18 GMT +0000
+
+Booted last: 16 Feb 2024 00:00 GMT +0000
+
+Script from: 25 Jan 2020 03:34 UTC +0000
+
+##### release ###########################
+
+Distributor ID:	Debian
+Description:	Debian GNU/Linux 12 (bookworm)
+Release:	12
+Codename:	bookworm
+
+##### kernel ############################
+
+Linux 6.1.0-15-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.66-1 (2023-12-09) x86_64 unknown unknown GNU/Linux
+
+Parameters: ro, quiet
+
+##### desktop ###########################
+
+GNOME
+
+##### lspci #############################
+
+3b:00.0 Network controller [0280]: Intel Corporation Wi-Fi 6 AX200 [8086:2723] (rev 1a)
+	Subsystem: Rivet Networks Killer Wi-Fi 6 AX1650x (AX200NGW) [1a56:1654]
+	Kernel driver in use: iwlwifi
+
+##### lsusb #############################
+
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 27c6:5395 Shenzhen Goodix Technology Co.,Ltd. Fingerprint Reader
+Bus 001 Device 002: ID 8087:0029 Intel Corp. AX200 Bluetooth
+Bus 001 Device 004: ID 0c45:6723 Microdia Integrated_Webcam_HD
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+##### PCMCIA card info ##################
+
+'pccardctl' is not installed (package "pcmciautils").
+
+##### rfkill ############################
+
+./wireless-info: line 192: rfkill: command not found
+
+##### secure boot #######################
+
+SecureBoot disabled
+
+##### lsmod #############################
+
+iwlmvm                385024  0
+mac80211             1175552  1 iwlmvm
+libarc4                16384  1 mac80211
+iwlwifi               360448  1 iwlmvm
+cfg80211             1142784  3 iwlmvm,iwlwifi,mac80211
+dell_laptop            32768  0
+ledtrig_audio          16384  3 snd_ctl_led,snd_hda_codec_generic,dell_laptop
+dell_wmi               20480  0
+dell_smbios            32768  2 dell_wmi,dell_laptop
+dell_wmi_sysman        53248  0
+firmware_attributes_class    16384  1 dell_wmi_sysman
+intel_wmi_thunderbolt    20480  0
+wmi_bmof               16384  0
+dell_wmi_descriptor    20480  2 dell_wmi,dell_smbios
+rfkill                 36864  10 iwlmvm,bluetooth,dell_laptop,cfg80211
+sparse_keymap          16384  2 intel_hid,dell_wmi
+mxm_wmi                16384  0
+video                  65536  4 dell_wmi,dell_laptop,i915,nvidia_modeset
+wmi                    36864  8 dell_wmi_sysman,video,intel_wmi_thunderbolt,dell_wmi,wmi_bmof,dell_smbios,dell_wmi_descriptor,mxm_wmi
+
+##### interfaces ########################
+
+[/etc/network/interfaces]
+
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+##### ifconfig ##########################
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback <MAC address> brd <MAC address>
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: wlp59s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether <MAC 'wlp59s0' [IF1]> brd <MAC address>
+    inet 192.168.0.97/24 brd 192.168.0.255 scope global dynamic noprefixroute wlp59s0
+       valid_lft 84405sec preferred_lft 84405sec
+    inet6 fe80::ff4d:60e:db4f:daef/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+3: lxcbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether <MAC 'lxcbr0' [IF2]> brd <MAC address>
+    inet 10.0.3.1/24 brd 10.0.3.255 scope global lxcbr0
+       valid_lft forever preferred_lft forever
+4: br-d0d960970926: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-d0d960970926' [IF3]> brd <MAC address>
+    inet 172.28.0.1/16 brd 172.28.255.255 scope global br-d0d960970926
+       valid_lft forever preferred_lft forever
+5: br-0d7f13af5c23: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-0d7f13af5c23' [IF4]> brd <MAC address>
+    inet 172.23.0.1/16 brd 172.23.255.255 scope global br-0d7f13af5c23
+       valid_lft forever preferred_lft forever
+6: br-1b4b8d8f5283: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-1b4b8d8f5283' [IF5]> brd <MAC address>
+    inet 172.19.0.1/16 brd 172.19.255.255 scope global br-1b4b8d8f5283
+       valid_lft forever preferred_lft forever
+7: br-1d520e4eae6e: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-1d520e4eae6e' [IF6]> brd <MAC address>
+    inet 172.27.0.1/16 brd 172.27.255.255 scope global br-1d520e4eae6e
+       valid_lft forever preferred_lft forever
+8: br-353bdaae3582: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-353bdaae3582' [IF7]> brd <MAC address>
+    inet 172.21.0.1/16 brd 172.21.255.255 scope global br-353bdaae3582
+       valid_lft forever preferred_lft forever
+9: br-b8d01b4949ca: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-b8d01b4949ca' [IF8]> brd <MAC address>
+    inet 192.168.0.1/20 brd 192.168.15.255 scope global br-b8d01b4949ca
+       valid_lft forever preferred_lft forever
+10: br-ce05aa4e9d14: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-ce05aa4e9d14' [IF9]> brd <MAC address>
+    inet 172.18.0.1/16 brd 172.18.255.255 scope global br-ce05aa4e9d14
+       valid_lft forever preferred_lft forever
+11: br-247b1cb061b8: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-247b1cb061b8' [IF10]> brd <MAC address>
+    inet 172.20.0.1/16 brd 172.20.255.255 scope global br-247b1cb061b8
+       valid_lft forever preferred_lft forever
+12: br-595ed816df7b: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'br-595ed816df7b' [IF11]> brd <MAC address>
+    inet 172.24.0.1/16 brd 172.24.255.255 scope global br-595ed816df7b
+       valid_lft forever preferred_lft forever
+13: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether <MAC 'docker0' [IF12]> brd <MAC address>
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+14: br-6df3270afec8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether <MAC 'br-6df3270afec8' [IF13]> brd <MAC address>
+    inet 172.22.0.1/16 brd 172.22.255.255 scope global br-6df3270afec8
+       valid_lft forever preferred_lft forever
+    inet6 fe80::<IP6 'br-6df3270afec8' [IF13]>/64 scope link 
+       valid_lft forever preferred_lft forever
+16: veth608bcbb@if15: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'veth608bcbb@if15' [IF14]> brd <MAC address> link-netnsid 0
+    inet6 fe80::<IP6 'veth608bcbb@if15' [IF14]>/64 scope link 
+       valid_lft forever preferred_lft forever
+20: veth18a7af6@if19: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'veth18a7af6@if19' [IF15]> brd <MAC address> link-netnsid 4
+    inet6 fe80::<IP6 'veth18a7af6@if19' [IF15]>/64 scope link 
+       valid_lft forever preferred_lft forever
+22: vethdbe9090@if21: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'vethdbe9090@if21' [IF16]> brd <MAC address> link-netnsid 2
+    inet6 fe80::<IP6 'vethdbe9090@if21' [IF16]>/64 scope link 
+       valid_lft forever preferred_lft forever
+26: veth9fa5f15@if25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'veth9fa5f15@if25' [IF17]> brd <MAC address> link-netnsid 6
+    inet6 fe80::<IP6 'veth9fa5f15@if25' [IF17]>/64 scope link 
+       valid_lft forever preferred_lft forever
+890: veth7e1fe1e@if889: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'veth7e1fe1e@if889' [IF18]> brd <MAC address> link-netnsid 5
+    inet6 fe80::<IP6 'veth7e1fe1e@if889' [IF18]>/64 scope link 
+       valid_lft forever preferred_lft forever
+892: veth6a83563@if891: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'veth6a83563@if891' [IF19]> brd <MAC address> link-netnsid 1
+    inet6 fe80::<IP6 'veth6a83563@if891' [IF19]>/64 scope link 
+       valid_lft forever preferred_lft forever
+894: veth6f6dac9@if893: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-6df3270afec8 state UP group default 
+    link/ether <MAC 'veth6f6dac9@if893' [IF20]> brd <MAC address> link-netnsid 3
+    inet6 fe80::<IP6 'veth6f6dac9@if893' [IF20]>/64 scope link 
+       valid_lft forever preferred_lft forever
+895: vetha460021@veth1449bc4: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default 
+    link/ether <MAC 'vetha460021@veth1449bc4' [IF21]> brd <MAC address>
+896: veth1449bc4@vetha460021: <NO-CARRIER,BROADCAST,MULTICAST,UP,M-DOWN> mtu 1500 qdisc noqueue master br-6df3270afec8 state LOWERLAYERDOWN group default 
+    link/ether <MAC 'veth1449bc4@vetha460021' [IF22]> brd <MAC address>
+147: waydroid0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether <MAC 'waydroid0' [IF23]> brd <MAC address>
+    inet 192.168.240.1/24 brd 192.168.240.255 scope global waydroid0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::<IP6 'waydroid0' [IF23]>/64 scope link 
+       valid_lft forever preferred_lft forever
+148: vethYzkgsN@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master waydroid0 state UP group default qlen 1000
+    link/ether <MAC 'vethYzkgsN@if2' [IF24]> brd <MAC address> link-netnsid 7
+    inet6 fe80::<IP6 'vethYzkgsN@if2' [IF24]>/64 scope link 
+       valid_lft forever preferred_lft forever
+
+##### iwconfig ##########################
+
+./wireless-info: line 230: iwconfig: command not found
+
+##### route #############################
+
+default via 192.168.0.1 dev wlp59s0 proto dhcp src 192.168.0.97 metric 600 
+10.0.3.0/24 dev lxcbr0 proto kernel scope link src 10.0.3.1 linkdown 
+169.254.0.0/16 dev wlp59s0 scope link metric 1000 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+172.18.0.0/16 dev br-ce05aa4e9d14 proto kernel scope link src 172.18.0.1 linkdown 
+172.19.0.0/16 dev br-1b4b8d8f5283 proto kernel scope link src 172.19.0.1 linkdown 
+172.20.0.0/16 dev br-247b1cb061b8 proto kernel scope link src 172.20.0.1 linkdown 
+172.21.0.0/16 dev br-353bdaae3582 proto kernel scope link src 172.21.0.1 linkdown 
+172.22.0.0/16 dev br-6df3270afec8 proto kernel scope link src 172.22.0.1 
+172.23.0.0/16 dev br-0d7f13af5c23 proto kernel scope link src 172.23.0.1 linkdown 
+172.24.0.0/16 dev br-595ed816df7b proto kernel scope link src 172.24.0.1 linkdown 
+172.27.0.0/16 dev br-1d520e4eae6e proto kernel scope link src 172.27.0.1 linkdown 
+172.28.0.0/16 dev br-d0d960970926 proto kernel scope link src 172.28.0.1 linkdown 
+192.168.0.0/24 dev wlp59s0 proto kernel scope link src 192.168.0.97 metric 600 
+192.168.0.0/20 dev br-b8d01b4949ca proto kernel scope link src 192.168.0.1 linkdown 
+192.168.240.0/24 dev waydroid0 proto kernel scope link src 192.168.240.1 
+
+##### resolv.conf #######################
+
+[644 root '/etc/resolv.conf']
+nameserver 194.168.4.100
+nameserver 194.168.8.100
+
+##### network managers ##################
+
+Installed:
+
+	NetworkManager
+
+Running:
+
+root        1239       1  0 07:44 ?        00:00:08 /usr/sbin/NetworkManager --no-daemon
+
+##### NetworkManager info ###############
+
+GENERAL.DEVICE:                         wlp59s0
+GENERAL.TYPE:                           wifi
+GENERAL.NM-TYPE:                        NMDeviceWifi
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/2
+GENERAL.VENDOR:                         Intel Corporation
+GENERAL.PRODUCT:                        Wi-Fi 6 AX200 (Killer Wi-Fi 6 AX1650x (AX200NGW))
+GENERAL.DRIVER:                         iwlwifi
+GENERAL.DRIVER-VERSION:                 6.1.0-15-amd64
+GENERAL.FIRMWARE-VERSION:               72.daa05125.0 cc-a0-72.ucode
+GENERAL.HWADDR:                         <MAC 'wlp59s0' [IF1]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               4 (full)
+GENERAL.IP6-CONNECTIVITY:               4 (full)
+GENERAL.UDI:                            /sys/devices/pci0000:00/0000:00:1c.0/0000:3b:00.0/net/wlp59s0
+GENERAL.PATH:                           pci-0000:3b:00.0
+GENERAL.IP-IFACE:                       wlp59s0
+GENERAL.IS-SOFTWARE:                    no
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     VM6696405
+GENERAL.CON-UUID:                       dc226291-c92f-4273-bbd6-44667863a6a9
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/2
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            no
+CAPABILITIES.SPEED:                     866 Mb/s
+CAPABILITIES.IS-SOFTWARE:               no
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIFI-PROPERTIES.WEP:                    yes
+WIFI-PROPERTIES.WPA:                    yes
+WIFI-PROPERTIES.WPA2:                   yes
+WIFI-PROPERTIES.TKIP:                   yes
+WIFI-PROPERTIES.CCMP:                   yes
+WIFI-PROPERTIES.AP:                     yes
+WIFI-PROPERTIES.ADHOC:                  yes
+WIFI-PROPERTIES.2GHZ:                   yes
+WIFI-PROPERTIES.5GHZ:                   yes
+WIFI-PROPERTIES.MESH:                   no
+WIFI-PROPERTIES.IBSS-RSN:               yes
+IP4.ADDRESS[1]:                         192.168.0.97/24
+IP4.GATEWAY:                            192.168.0.1
+IP4.ROUTE[1]:                           dst = 192.168.0.0/24, nh = 0.0.0.0, mt = 600
+IP4.ROUTE[2]:                           dst = 0.0.0.0/0, nh = 192.168.0.1, mt = 600
+IP4.ROUTE[3]:                           dst = 169.254.0.0/16, nh = 0.0.0.0, mt = 1000
+IP4.DNS[1]:                             194.168.4.100
+IP4.DNS[2]:                             194.168.8.100
+DHCP4.OPTION[1]:                        dhcp_client_identifier = 01:<MAC 'wlp59s0' [IF1]>
+DHCP4.OPTION[2]:                        dhcp_lease_time = 86400
+DHCP4.OPTION[3]:                        dhcp_server_identifier = 192.168.0.1
+DHCP4.OPTION[4]:                        domain_name_servers = 194.168.4.100 194.168.8.100
+DHCP4.OPTION[5]:                        expiry = 1708152300
+DHCP4.OPTION[6]:                        host_name = dylan-pc
+DHCP4.OPTION[7]:                        ip_address = 192.168.0.97
+DHCP4.OPTION[8]:                        next_server = 192.168.0.1
+DHCP4.OPTION[9]:                        requested_broadcast_address = 1
+DHCP4.OPTION[10]:                       requested_domain_name = 1
+DHCP4.OPTION[11]:                       requested_domain_name_servers = 1
+DHCP4.OPTION[12]:                       requested_domain_search = 1
+DHCP4.OPTION[13]:                       requested_host_name = 1
+DHCP4.OPTION[14]:                       requested_interface_mtu = 1
+DHCP4.OPTION[15]:                       requested_ms_classless_static_routes = 1
+DHCP4.OPTION[16]:                       requested_nis_domain = 1
+DHCP4.OPTION[17]:                       requested_nis_servers = 1
+DHCP4.OPTION[18]:                       requested_ntp_servers = 1
+DHCP4.OPTION[19]:                       requested_rfc3442_classless_static_routes = 1
+DHCP4.OPTION[20]:                       requested_root_path = 1
+DHCP4.OPTION[21]:                       requested_routers = 1
+DHCP4.OPTION[22]:                       requested_static_routes = 1
+DHCP4.OPTION[23]:                       requested_subnet_mask = 1
+DHCP4.OPTION[24]:                       requested_time_offset = 1
+DHCP4.OPTION[25]:                       requested_wpad = 1
+DHCP4.OPTION[26]:                       routers = 192.168.0.1
+DHCP4.OPTION[27]:                       subnet_mask = 255.255.255.0
+IP6.ADDRESS[1]:                         fe80::ff4d:60e:db4f:daef/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/6
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   dc226291-c92f-4273-bbd6-44667863a6a9 | VM6696405
+
+GENERAL.DEVICE:                         br-6df3270afec8
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/15
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-6df3270afec8' [IF13]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-6df3270afec8
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-6df3270afec8
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-6df3270afec8
+GENERAL.CON-UUID:                       ee7e6991-df2c-4afc-8e83-05db3f3b5d0f
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/14
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.22.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.22.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.ADDRESS[1]:                         fe80::<IP6 'br-6df3270afec8' [IF13]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/119
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   ee7e6991-df2c-4afc-8e83-05db3f3b5d0f | br-6df3270afec8
+
+GENERAL.DEVICE:                         waydroid0
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/205
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'waydroid0' [IF23]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/waydroid0
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       waydroid0
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     waydroid0
+GENERAL.CON-UUID:                       246c5fca-d01f-4cc5-beac-b79859bc09d8
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/15
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         192.168.240.1/24
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 192.168.240.0/24, nh = 0.0.0.0, mt = 0
+IP6.ADDRESS[1]:                         fe80::<IP6 'waydroid0' [IF23]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/120
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   246c5fca-d01f-4cc5-beac-b79859bc09d8 | waydroid0
+
+GENERAL.DEVICE:                         br-0d7f13af5c23
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/6
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-0d7f13af5c23' [IF4]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-0d7f13af5c23
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-0d7f13af5c23
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-0d7f13af5c23
+GENERAL.CON-UUID:                       091c8d5f-6321-4e1d-9862-55a4720e16ad
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/5
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.23.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.23.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/110
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   091c8d5f-6321-4e1d-9862-55a4720e16ad | br-0d7f13af5c23
+
+GENERAL.DEVICE:                         br-1b4b8d8f5283
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/7
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-1b4b8d8f5283' [IF5]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-1b4b8d8f5283
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-1b4b8d8f5283
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-1b4b8d8f5283
+GENERAL.CON-UUID:                       41f37472-e914-4981-9432-80e96a11e134
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/6
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.19.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.19.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/111
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   41f37472-e914-4981-9432-80e96a11e134 | br-1b4b8d8f5283
+
+GENERAL.DEVICE:                         br-1d520e4eae6e
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/8
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-1d520e4eae6e' [IF6]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-1d520e4eae6e
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-1d520e4eae6e
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-1d520e4eae6e
+GENERAL.CON-UUID:                       418ac64f-fcba-4cac-a91d-d4b8a85be935
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/7
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.27.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.27.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/112
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   418ac64f-fcba-4cac-a91d-d4b8a85be935 | br-1d520e4eae6e
+
+GENERAL.DEVICE:                         br-247b1cb061b8
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/12
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-247b1cb061b8' [IF10]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-247b1cb061b8
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-247b1cb061b8
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-247b1cb061b8
+GENERAL.CON-UUID:                       b9f422a0-c18b-499e-b339-11304d20b1f5
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/11
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.20.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.20.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/116
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   b9f422a0-c18b-499e-b339-11304d20b1f5 | br-247b1cb061b8
+
+GENERAL.DEVICE:                         br-353bdaae3582
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/9
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-353bdaae3582' [IF7]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-353bdaae3582
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-353bdaae3582
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-353bdaae3582
+GENERAL.CON-UUID:                       f7bd8bd8-fbb0-42b7-b56c-9028c2cfd49f
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/8
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.21.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.21.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/113
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   f7bd8bd8-fbb0-42b7-b56c-9028c2cfd49f | br-353bdaae3582
+
+GENERAL.DEVICE:                         br-595ed816df7b
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/13
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-595ed816df7b' [IF11]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-595ed816df7b
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-595ed816df7b
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-595ed816df7b
+GENERAL.CON-UUID:                       d5b3042c-1ee7-4803-9fa2-debf27118d05
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/12
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.24.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.24.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/117
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   d5b3042c-1ee7-4803-9fa2-debf27118d05 | br-595ed816df7b
+
+GENERAL.DEVICE:                         br-b8d01b4949ca
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/10
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-b8d01b4949ca' [IF8]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-b8d01b4949ca
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-b8d01b4949ca
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-b8d01b4949ca
+GENERAL.CON-UUID:                       001ffed2-df24-437f-a6c9-f5bf5a79e974
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/9
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         192.168.0.1/20
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 192.168.0.0/20, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/114
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   001ffed2-df24-437f-a6c9-f5bf5a79e974 | br-b8d01b4949ca
+
+GENERAL.DEVICE:                         br-ce05aa4e9d14
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/11
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-ce05aa4e9d14' [IF9]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-ce05aa4e9d14
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-ce05aa4e9d14
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-ce05aa4e9d14
+GENERAL.CON-UUID:                       55321819-e860-4926-8ae5-02d50702ca47
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/10
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.18.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.18.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/115
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   55321819-e860-4926-8ae5-02d50702ca47 | br-ce05aa4e9d14
+
+GENERAL.DEVICE:                         br-d0d960970926
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/5
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'br-d0d960970926' [IF3]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/br-d0d960970926
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       br-d0d960970926
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     br-d0d960970926
+GENERAL.CON-UUID:                       d1fc701c-aeaf-43b2-bacf-c6a4a360a672
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/4
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.28.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.28.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/109
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   d1fc701c-aeaf-43b2-bacf-c6a4a360a672 | br-d0d960970926
+
+GENERAL.DEVICE:                         docker0
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/14
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'docker0' [IF12]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/docker0
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       docker0
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     docker0
+GENERAL.CON-UUID:                       9fdf216a-89b7-407d-b8e4-91c53bfc7b6f
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/13
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         172.17.0.1/16
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 172.17.0.0/16, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/118
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   9fdf216a-89b7-407d-b8e4-91c53bfc7b6f | docker0
+
+GENERAL.DEVICE:                         lxcbr0
+GENERAL.TYPE:                           bridge
+GENERAL.NM-TYPE:                        NMDeviceBridge
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/4
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         bridge
+GENERAL.DRIVER-VERSION:                 2.3
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'lxcbr0' [IF2]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected (externally))
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               3 (limited)
+GENERAL.IP6-CONNECTIVITY:               3 (limited)
+GENERAL.UDI:                            /sys/devices/virtual/net/lxcbr0
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       lxcbr0
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     lxcbr0
+GENERAL.CON-UUID:                       c91b8d96-8f94-4517-a914-a1dc1bb148ec
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/3
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+IP4.ADDRESS[1]:                         10.0.3.1/24
+IP4.GATEWAY:                            --
+IP4.ROUTE[1]:                           dst = 10.0.3.0/24, nh = 0.0.0.0, mt = 0
+IP6.GATEWAY:                            --
+BRIDGE.SLAVES:                          --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/108
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   c91b8d96-8f94-4517-a914-a1dc1bb148ec | lxcbr0
+
+GENERAL.DEVICE:                         p2p-dev-wlp59s0
+GENERAL.TYPE:                           wifi-p2p
+GENERAL.NM-TYPE:                        NMDeviceWifiP2P
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/3
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         (unknown)
+GENERAL.DRIVER-VERSION:                 --
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         (unknown)
+GENERAL.MTU:                            0
+GENERAL.STATE:                          30 (disconnected)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               1 (none)
+GENERAL.IP6-CONNECTIVITY:               1 (none)
+GENERAL.UDI:                            /virtual/device/placeholder/1
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       --
+GENERAL.IS-SOFTWARE:                    no
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            no
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               no
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     no
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth1449bc4
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/1297
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth1449bc4@vetha460021' [IF22]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth1449bc4
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth1449bc4
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               off
+IP4.GATEWAY:                            --
+IP6.GATEWAY:                            --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth18a7af6
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/21
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth18a7af6@if19' [IF15]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth18a7af6
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth18a7af6
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'veth18a7af6@if19' [IF15]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth608bcbb
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/17
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth608bcbb@if15' [IF14]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth608bcbb
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth608bcbb
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'veth608bcbb@if15' [IF14]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth6a83563
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/1292
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth6a83563@if891' [IF19]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth6a83563
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth6a83563
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'veth6a83563@if891' [IF19]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth6f6dac9
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/1295
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth6f6dac9@if893' [IF20]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth6f6dac9
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth6f6dac9
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'veth6f6dac9@if893' [IF20]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth7e1fe1e
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/1289
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth7e1fe1e@if889' [IF18]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth7e1fe1e
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth7e1fe1e
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'veth7e1fe1e@if889' [IF18]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         veth9fa5f15
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/27
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'veth9fa5f15@if25' [IF17]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/veth9fa5f15
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       veth9fa5f15
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'veth9fa5f15@if25' [IF17]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         vethYzkgsN
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/206
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'vethYzkgsN@if2' [IF24]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/vethYzkgsN
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       vethYzkgsN
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'vethYzkgsN@if2' [IF24]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         vetha460021
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/1296
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'vetha460021@veth1449bc4' [IF21]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/vetha460021
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       vetha460021
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     unknown
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     no
+INTERFACE-FLAGS.LOWER-UP:               no
+INTERFACE-FLAGS.CARRIER:                no
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               off
+IP4.GATEWAY:                            --
+IP6.GATEWAY:                            --
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+GENERAL.DEVICE:                         vethdbe9090
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceVeth
+GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/Devices/23
+GENERAL.VENDOR:                         --
+GENERAL.PRODUCT:                        --
+GENERAL.DRIVER:                         veth
+GENERAL.DRIVER-VERSION:                 1.0
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'vethdbe9090@if21' [IF16]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          10 (unmanaged)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.IP4-CONNECTIVITY:               0 (unknown)
+GENERAL.IP6-CONNECTIVITY:               0 (unknown)
+GENERAL.UDI:                            /sys/devices/virtual/net/vethdbe9090
+GENERAL.PATH:                           --
+GENERAL.IP-IFACE:                       vethdbe9090
+GENERAL.IS-SOFTWARE:                    yes
+GENERAL.NM-MANAGED:                     no
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     10000 Mb/s
+CAPABILITIES.IS-SOFTWARE:               yes
+CAPABILITIES.SRIOV:                     no
+INTERFACE-FLAGS.UP:                     yes
+INTERFACE-FLAGS.LOWER-UP:               yes
+INTERFACE-FLAGS.CARRIER:                yes
+INTERFACE-FLAGS.PROMISC:                no
+WIRED-PROPERTIES.CARRIER:               on
+IP4.GATEWAY:                            --
+IP6.ADDRESS[1]:                         fe80::<IP6 'vethdbe9090@if21' [IF16]>/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 256
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+SSID          BSSID              MODE   CHAN  FREQ      RATE        SIGNAL  BARS  SECURITY  ACTIVE  IN-USE 
+VM6696405     <MAC 'VM6696405' [AC7]>  Infra  11    2462 MHz  130 Mbit/s  74      ***   WPA2      no             
+VM6696405     <MAC 'VM6696405' [AC4]>  Infra  44    5220 MHz  405 Mbit/s  74      ***   WPA2      yes     *      
+VM3310088     <MAC 'VM3310088' [AC5]>  Infra  36    5180 MHz  405 Mbit/s  62      ***   WPA2      no             
+VM2446411     <MAC 'VM2446411' [AC1]>  Infra  6     2437 MHz  130 Mbit/s  37      **    WPA2      no             
+VM3380370     <MAC 'VM3380370' [AC2]>  Infra  6     2437 MHz  405 Mbit/s  35      **    WPA2      no             
+VM2446411-5G  <MAC 'VM2446411-5G' [AC6]>  Infra  44    5220 MHz  405 Mbit/s  22      *     WPA2      no             
+VM3380370     <MAC 'VM3380370' [AC3]>  Infra  108   5540 MHz  540 Mbit/s  22      *     WPA2      no             
+
+##### NetworkManager.state ##############
+
+[main]
+NetworkingEnabled=true
+WirelessEnabled=true
+WWANEnabled=true
+
+##### NetworkManager config #############
+
+[[/etc/NetworkManager/NetworkManager.conf]]
+[main]
+plugins=ifupdown,keyfile
+[ifupdown]
+managed=false
+
+[[/usr/lib/NetworkManager/conf.d/no-mac-addr-change.conf]]
+[device-31-mac-addr-change]
+match-device=driver:eagle_sdio,driver:wl
+wifi.scan-rand-mac-address=no
+
+##### NetworkManager profiles ###########
+
+[[/etc/NetworkManager/system-connections/Athithi.nmconnection]] (600 root)
+[connection] id=Athithi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Athithi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/KPN.nmconnection]] (600 root)
+[connection] id=KPN | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=KPN
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/publicroam.nmconnection]] (600 root)
+[connection] id=publicroam | type=wifi
+[wifi] ssid=publicroam
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/BurgerberaadVoorHetKlimaat.nmconnection]] (600 root)
+[connection] id=BurgerberaadVoorHetKlimaat | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=BurgerberaadVoorHetKlimaat
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Michael’s iPhone.nmconnection]] (600 root)
+[connection] id=Michael’s iPhone | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=77;105;99;104;97;101;108;226;128;153;115;32;105;80;104;111;110;101;
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/VM6696405.nmconnection]] (600 root)
+[connection] id=VM6696405 | type=wifi
+[wifi] ssid=VM6696405
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/IRZ-69024.nmconnection]] (600 root)
+[connection] id=IRZ-69024 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=IRZ-69024
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Kazik Amsterdam.nmconnection]] (600 root)
+[connection] id=Kazik Amsterdam | type=wifi
+[wifi] ssid=Kazik Amsterdam
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/De Sloot - gasten.nmconnection]] (600 root)
+[connection] id=De Sloot - gasten | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=De Sloot - gasten
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/TALKTALKA075EB.nmconnection]] (600 root)
+[connection] id=TALKTALKA075EB | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=TALKTALKA075EB
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Buchmenschen.nmconnection]] (600 root)
+[connection] id=Buchmenschen | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Buchmenschen
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/FibreBox_X6-0AE6A7.nmconnection]] (600 root)
+[connection] id=FibreBox_X6-0AE6A7 | type=wifi
+[wifi] ssid=FibreBox_X6-0AE6A7
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/uva [b5deb521].nmconnection]] (600 root)
+
+[[/etc/NetworkManager/system-connections/Decathlon Free WiFi.nmconnection]] (600 root)
+[connection] id=Decathlon Free WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Decathlon Free WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Ziggo8110501.nmconnection]] (600 root)
+[connection] id=Ziggo8110501 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Ziggo8110501
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/H369AE56F0C.nmconnection]] (600 root)
+[connection] id=H369AE56F0C | type=wifi
+[wifi] ssid=H369AE56F0C
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Salt_2GHz_8A9A06.nmconnection]] (600 root)
+[connection] id=Salt_2GHz_8A9A06 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Salt_2GHz_8A9A06
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/LNER-WIFI.nmconnection]] (600 root)
+[connection] id=LNER-WIFI | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=LNER-WIFI
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/PublicRoam_2.nmconnection]] (600 root)
+[connection] id=PublicRoam/2 | type=wifi
+[wifi] ssid=PublicRoam/2
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Coop free.nmconnection]] (600 root)
+[connection] id=Coop free | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Coop free
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/VM0927441.nmconnection]] (600 root)
+[connection] id=VM0927441 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=VM0927441
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/TALKTALK08635B.nmconnection]] (600 root)
+[connection] id=TALKTALK08635B | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=TALKTALK08635B
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Bristol-Libraries.nmconnection]] (600 root)
+[connection] id=Bristol-Libraries | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Bristol-Libraries
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/kds-79436.nmconnection]] (600 root)
+[connection] id=kds-79436 | type=wifi
+[wifi] ssid=kds-79436
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/iPhone von Luzia Stettler.nmconnection]] (600 root)
+[connection] id=iPhone von Luzia Stettler | type=wifi | autoconnect=false | permissions=
+[wifi] mac-address-blacklist= | ssid=iPhone von Luzia Stettler
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/StudioK guest.nmconnection]] (600 root)
+[connection] id=StudioK guest | type=wifi
+[wifi] ssid=StudioK guest
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Kriterion.nmconnection]] (600 root)
+[connection] id=Kriterion | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Kriterion
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Fastlane.nmconnection]] (600 root)
+[connection] id=Fastlane | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Fastlane
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Pixel_1139.nmconnection]] (600 root)
+[connection] id=Pixel_1139 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Pixel_1139
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/iPhone.nmconnection]] (600 root)
+[connection] id=iPhone | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=iPhone
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Buchmenschen_5GHz.nmconnection]] (600 root)
+[connection] id=Buchmenschen_5GHz | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Buchmenschen_5GHz
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/UoN-guest.nmconnection]] (600 root)
+[connection] id=UoN-guest | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=UoN-guest
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Spectral_5G.nmconnection]] (600 root)
+[connection] id=Spectral_5G | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Spectral_5G
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Pixel_8510.nmconnection]] (600 root)
+[connection] id=Pixel_8510 | type=wifi
+[wifi] ssid=Pixel_8510
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Bedford Guest.nmconnection]] (600 root)
+[connection] id=Bedford Guest | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Bedford Guest
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Luton Airport WiFi.nmconnection]] (600 root)
+[connection] id=Luton Airport WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Luton Airport WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/NFF-UPSTAIRS.nmconnection]] (600 root)
+[connection] id=NFF-UPSTAIRS | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=NFF-UPSTAIRS
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/KET Café.nmconnection]] (600 root)
+[connection] id=KET Café | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=75;69;84;32;67;97;102;195;169;
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/De Ceuvel.nmconnection]] (600 root)
+[connection] id=De Ceuvel | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=De Ceuvel
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/LAB111.nmconnection]] (600 root)
+[connection] id=LAB111 | type=wifi
+[wifi] ssid=LAB111
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Huelga_general.nmconnection]] (600 root)
+[connection] id=Huelga_general | type=wifi
+[wifi] ssid=Huelga_general
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/FietsKliniek.nmconnection]] (600 root)
+[connection] id=FietsKliniek | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=FietsKliniek
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/dylan-phone.nmconnection]] (600 root)
+[connection] id=dylan-phone | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=dylan-phone
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Salt_5GHz_2F9BF2.nmconnection]] (600 root)
+[connection] id=Salt_5GHz_2F9BF2 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Salt_5GHz_2F9BF2
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/FlixBus.nmconnection]] (600 root)
+[connection] id=FlixBus | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=FlixBus
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/SKYY4ANC.nmconnection]] (600 root)
+[connection] id=SKYY4ANC | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=SKYY4ANC
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/PANTELIOS VILLAGE.nmconnection]] (600 root)
+[connection] id=PANTELIOS VILLAGE | type=wifi
+[wifi] ssid=PANTELIOS VILLAGE
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/EMR_WIFI.nmconnection]] (600 root)
+[connection] id=EMR_WIFI | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=EMR_WIFI
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/NEWLiNC Beeston.nmconnection]] (600 root)
+[connection] id=NEWLiNC Beeston | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=NEWLiNC Beeston
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/FoodE.nmconnection]] (600 root)
+[connection] id=FoodE | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=FoodE
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/VM3640583.nmconnection]] (600 root)
+[connection] id=VM3640583 | type=wifi
+[wifi] ssid=VM3640583
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/WIFIonICE.nmconnection]] (600 root)
+[connection] id=WIFIonICE | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=WIFIonICE
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Cinetolwifi.nmconnection]] (600 root)
+[connection] id=Cinetolwifi | type=wifi
+[wifi] ssid=Cinetolwifi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/air temple island.nmconnection]] (600 root)
+[connection] id=air temple island | type=wifi
+[wifi] ssid=air temple island
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/greateranglia-wifi.nmconnection]] (600 root)
+[connection] id=greateranglia-wifi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=greateranglia-wifi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/TP-Link_DA22.nmconnection]] (600 root)
+[connection] id=TP-Link_DA22 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=TP-Link_DA22
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/BurgerberaadVoorHetKlimaat2G.nmconnection]] (600 root)
+[connection] id=BurgerberaadVoorHetKlimaat2G | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=BurgerberaadVoorHetKlimaat2G
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Ziggo0168893.nmconnection]] (600 root)
+[connection] id=Ziggo0168893 | type=wifi
+[wifi] ssid=Ziggo0168893
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/_Free Airport WiFi.nmconnection]] (600 root)
+[connection] id=_Free Airport WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=_Free Airport WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Fairphone 3 AP_1938.nmconnection]] (600 root)
+[connection] id=Fairphone 3 AP_1938 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Fairphone 3 AP_1938
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/NOTFORFREELOADERS.nmconnection]] (600 root)
+[connection] id=NOTFORFREELOADERS | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=NOTFORFREELOADERS
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Theaterbroedplaats De Sloot.nmconnection]] (600 root)
+[connection] id=Theaterbroedplaats De Sloot | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Theaterbroedplaats De Sloot
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/WijDoenDitOokVoorJullieKinderen.nmconnection]] (600 root)
+[connection] id=WijDoenDitOokVoorJullieKinderen | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=WijDoenDitOokVoorJullieKinderen
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/QL-72618.nmconnection]] (600 root)
+[connection] id=QL-72618 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=QL-72618
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/KPNBC18A6.nmconnection]] (600 root)
+[connection] id=KPNBC18A6 | type=wifi
+[wifi] ssid=KPNBC18A6
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Jumbo-HotSpot.nmconnection]] (600 root)
+[connection] id=Jumbo-HotSpot | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Jumbo-HotSpot
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Spectral_2G.nmconnection]] (600 root)
+[connection] id=Spectral_2G | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Spectral_2G
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/HNK020-PUBLIEK.nmconnection]] (600 root)
+[connection] id=HNK020-PUBLIEK | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=HNK020-PUBLIEK
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Blanca.nmconnection]] (600 root)
+[connection] id=Blanca | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Blanca
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/UPC6786467.nmconnection]] (600 root)
+[connection] id=UPC6786467 | type=wifi
+[wifi] ssid=UPC6786467
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/VM6696405_5GEXT.nmconnection]] (600 root)
+[connection] id=VM6696405_5GEXT | type=wifi
+[wifi] ssid=VM6696405_5GEXT
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Bedford Reception.nmconnection]] (600 root)
+[connection] id=Bedford Reception | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Bedford Reception
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/ziggo6DD97F4.nmconnection]] (600 root)
+[connection] id=ziggo6DD97F4 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=ziggo6DD97F4
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/SpectralExtend_5G.nmconnection]] (600 root)
+[connection] id=SpectralExtend_5G | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=SpectralExtend_5G
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/GWR WiFi.nmconnection]] (600 root)
+[connection] id=GWR WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=GWR WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Airport_Free_WiFi.nmconnection]] (600 root)
+[connection] id=Airport_Free_WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Airport_Free_WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/B535_EB31.nmconnection]] (600 root)
+[connection] id=B535_EB31 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=B535_EB31
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/VM6696405_EXT.nmconnection]] (600 root)
+[connection] id=VM6696405_EXT | type=wifi
+[wifi] ssid=VM6696405_EXT
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/EurostarTrainsWiFi.nmconnection]] (600 root)
+[connection] id=EurostarTrainsWiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=EurostarTrainsWiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/EMR_WiFi.nmconnection]] (600 root)
+[connection] id=EMR_WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=EMR_WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Brennan’s iPhone.nmconnection]] (600 root)
+[connection] id=Brennan’s iPhone | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=66;114;101;110;110;97;110;226;128;153;115;32;105;80;104;111;110;101;
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Tolbar.nmconnection]] (600 root)
+[connection] id=Tolbar | type=wifi
+[wifi] ssid=Tolbar
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/hva [6ef51629].nmconnection]] (600 root)
+
+[[/etc/NetworkManager/system-connections/_Costa-Guest.nmconnection]] (600 root)
+[connection] id=_Costa-Guest | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=_Costa-Guest
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Filmhallen gast.nmconnection]] (600 root)
+[connection] id=Filmhallen gast | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Filmhallen gast
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/SpectralPlus.nmconnection]] (600 root)
+[connection] id=SpectralPlus | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=SpectralPlus
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/VM3995204.nmconnection]] (600 root)
+[connection] id=VM3995204 | type=wifi | autoconnect=false | permissions=
+[wifi] mac-address-blacklist= | ssid=VM3995204
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/CrossCountryWiFi.nmconnection]] (600 root)
+[connection] id=CrossCountryWiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=CrossCountryWiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Flixbus EA9A.nmconnection]] (600 root)
+[connection] id=Flixbus EA9A | type=wifi
+[wifi] ssid=Flixbus EA9A
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Redmi Note 11.nmconnection]] (600 root)
+[connection] id=Redmi Note 11 | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Redmi Note 11
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/eduroam [2daaf229].nmconnection]] (600 root)
+
+[[/etc/NetworkManager/system-connections/adm.nmconnection]] (600 root)
+[connection] id=adm | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=adm
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Kriterion - Gasten.nmconnection]] (600 root)
+[connection] id=Kriterion - Gasten | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Kriterion - Gasten
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/BT-7KAK2R.nmconnection]] (600 root)
+[connection] id=BT-7KAK2R | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=BT-7KAK2R
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Northern WiFi.nmconnection]] (600 root)
+[connection] id=Northern WiFi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Northern WiFi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Vincent.nmconnection]] (600 root)
+[connection] id=Vincent | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Vincent
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/WiFi in de trein.nmconnection]] (600 root)
+[connection] id=WiFi in de trein | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=WiFi in de trein
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/B535_EB31_5G.nmconnection]] (600 root)
+[connection] id=B535_EB31_5G | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=B535_EB31_5G
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/XS4SPECTRAL.nmconnection]] (600 root)
+[connection] id=XS4SPECTRAL | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=XS4SPECTRAL
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/UvA Open Wi-Fi.nmconnection]] (600 root)
+[connection] id=UvA Open Wi-Fi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=UvA Open Wi-Fi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/B535_EB31_EXT.nmconnection]] (600 root)
+[connection] id=B535_EB31_EXT | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=B535_EB31_EXT
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/Stena Line Guest wifi.nmconnection]] (600 root)
+[connection] id=Stena Line Guest wifi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=Stena Line Guest wifi
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/LaFraicheur.nmconnection]] (600 root)
+[connection] id=LaFraicheur | type=wifi
+[wifi] ssid=LaFraicheur
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/BurgerberaadVoorHetKlimaat5G.nmconnection]] (600 root)
+[connection] id=BurgerberaadVoorHetKlimaat5G | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=BurgerberaadVoorHetKlimaat5G
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/iPhone von Hoi.nmconnection]] (600 root)
+[connection] id=iPhone von Hoi | type=wifi | permissions=
+[wifi] mac-address-blacklist= | ssid=iPhone von Hoi
+[ipv4] method=auto
+[ipv6] method=auto
+
+##### Netplan config ####################
+
+##### iw reg get ########################
+
+./wireless-info: line 317: iw: command not found
+
+##### iwlist channels ###################
+
+./wireless-info: line 328: iwlist: command not found
+
+##### iwlist scan #######################
+
+lo        Interface doesn't support scanning.
+
+lxcbr0    Interface doesn't support scanning.
+
+br-d0d960970926  Interface doesn't support scanning.
+
+br-0d7f13af5c23  Interface doesn't support scanning.
+
+br-1b4b8d8f5283  Interface doesn't support scanning.
+
+br-1d520e4eae6e  Interface doesn't support scanning.
+
+br-353bdaae3582  Interface doesn't support scanning.
+
+br-b8d01b4949ca  Interface doesn't support scanning.
+
+br-ce05aa4e9d14  Interface doesn't support scanning.
+
+br-247b1cb061b8  Interface doesn't support scanning.
+
+br-595ed816df7b  Interface doesn't support scanning.
+
+docker0   Interface doesn't support scanning.
+
+br-6df3270afec8  Interface doesn't support scanning.
+
+veth608bcbb  Interface doesn't support scanning.
+
+veth18a7af6  Interface doesn't support scanning.
+
+vethdbe9090  Interface doesn't support scanning.
+
+veth9fa5f15  Interface doesn't support scanning.
+
+veth7e1fe1e  Interface doesn't support scanning.
+
+veth6a83563  Interface doesn't support scanning.
+
+waydroid0  Interface doesn't support scanning.
+
+vethYzkgsN  Interface doesn't support scanning.
+
+Channel occupancy:
+
+      2   APs on   Frequency:2.437 GHz (Channel 6)
+      2   APs on   Frequency:2.462 GHz (Channel 11)
+      1   APs on   Frequency:5.18 GHz (Channel 36)
+      2   APs on   Frequency:5.22 GHz (Channel 44)
+      1   APs on   Frequency:5.54 GHz (Channel 108)
+
+wlp59s0   Scan completed :
+          Cell 01 - Address: <MAC 'VM2446411' [AC1]>
+                    Channel:6
+                    Frequency:2.437 GHz (Channel 6)
+                    Quality=37/70  Signal level=-73 dBm  
+                    Encryption key:on
+                    ESSID:"VM2446411"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s
+                              9 Mb/s; 12 Mb/s; 18 Mb/s
+                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=000002c3ba400c62
+                    Extra: Last beacon: 1384ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 02 - Address: <MAC 'VM3380370' [AC2]>
+                    Channel:6
+                    Frequency:2.437 GHz (Channel 6)
+                    Quality=30/70  Signal level=-80 dBm  
+                    Encryption key:on
+                    ESSID:"VM3380370"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 18 Mb/s
+                              24 Mb/s; 36 Mb/s; 54 Mb/s
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 48 Mb/s
+                    Mode:Master
+                    Extra:tsf=000000a78500e231
+                    Extra: Last beacon: 1384ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 03 - Address: <MAC 'VM3380370' [AC3]>
+                    Channel:108
+                    Frequency:5.54 GHz (Channel 108)
+                    Quality=22/70  Signal level=-88 dBm  
+                    Encryption key:on
+                    ESSID:"VM3380370"
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s
+                              36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=000000a786056fa8
+                    Extra: Last beacon: 788ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 04 - Address: <MAC 'VM6696405' [AC4]>
+                    Channel:44
+                    Frequency:5.22 GHz (Channel 44)
+                    Quality=55/70  Signal level=-55 dBm  
+                    Encryption key:on
+                    ESSID:"VM6696405"
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s
+                              36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=000001c9b5909f0c
+                    Extra: Last beacon: 668ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 05 - Address: <MAC 'VM3310088' [AC5]>
+                    Channel:36
+                    Frequency:5.18 GHz (Channel 36)
+                    Quality=49/70  Signal level=-61 dBm  
+                    Encryption key:on
+                    ESSID:"VM3310088"
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s
+                              36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=00000198aaff52a7
+                    Extra: Last beacon: 644ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 06 - Address: <MAC 'VM2446411-5G' [AC6]>
+                    Channel:44
+                    Frequency:5.22 GHz (Channel 44)
+                    Quality=23/70  Signal level=-87 dBm  
+                    Encryption key:on
+                    ESSID:"VM2446411-5G"
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s
+                              36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=000002c3be0dfe1d
+                    Extra: Last beacon: 668ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 07 - Address: <MAC 'VM6696405' [AC7]>
+                    Channel:11
+                    Frequency:2.462 GHz (Channel 11)
+                    Quality=58/70  Signal level=-52 dBm  
+                    Encryption key:on
+                    ESSID:"VM6696405"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s
+                              9 Mb/s; 12 Mb/s; 18 Mb/s
+                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=000001c9b2f8c180
+                    Extra: Last beacon: 976ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 08 - Address: <MAC 'PLUSNET-89C9C3' [AC8]>
+                    Channel:11
+                    Frequency:2.462 GHz (Channel 11)
+                    Quality=25/70  Signal level=-85 dBm  
+                    Encryption key:on
+                    ESSID:"PLUSNET-89C9C3"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 18 Mb/s
+                              24 Mb/s; 36 Mb/s; 54 Mb/s
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 48 Mb/s
+                    Mode:Master
+                    Extra:tsf=000000dc04f655b9
+                    Extra: Last beacon: 880ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+
+##### module infos ######################
+
+./wireless-info: line 359: modinfo: command not found
+[iwlmvm]
+
+./wireless-info: line 359: modinfo: command not found
+[mac80211]
+
+./wireless-info: line 359: modinfo: command not found
+[iwlwifi]
+
+./wireless-info: line 359: modinfo: command not found
+[cfg80211]
+
+##### module parameters #################
+
+[iwlmvm]
+init_dbg: N
+power_scheme: 2
+
+[mac80211]
+beacon_loss_count: 7
+ieee80211_default_rc_algo: minstrel_ht
+max_nullfunc_tries: 2
+max_probe_tries: 5
+minstrel_vht_only: Y
+probe_wait_ms: 500
+
+[iwlwifi]
+11n_disable: 0
+amsdu_size: 0
+bt_coex_active: Y
+disable_11ac: N
+disable_11ax: N
+enable_ini: 16
+fw_restart: Y
+led_mode: 0
+nvm_file: (null)
+power_level: 0
+power_save: N
+remove_when_gone: N
+swcrypto: 0
+uapsd_disable: 3
+
+[cfg80211]
+bss_entries_limit: 1000
+cfg80211_disable_40mhz_24ghz: N
+ieee80211_regdom: 00
+
+##### /etc/modules ######################
+
+##### modprobe options ##################
+
+##### rc.local ##########################
+
+grep: /etc/rc.local: No such file or directory
+
+##### pm-utils ##########################
+
+##### udev rules ########################
+
+##### dmesg #############################
+
+[ 2002.498562] br-6df3270afec8: port 2(vethd8ab919) entered disabled state
+[ 2002.498695] br-6df3270afec8: port 7(veth3ada049) entered disabled state (repeated 3 times)
+[ 2002.704699] eth0: renamed from vethdb10e02
+[ 2002.745843] br-6df3270afec8: port 2(vethd8ab919) entered blocking state
+[ 2002.745846] br-6df3270afec8: port 2(vethd8ab919) entered forwarding state
+[ 2002.746052] br-6df3270afec8: port 7(vethbc3e3c5) entered blocking state
+[ 2002.746056] br-6df3270afec8: port 7(vethbc3e3c5) entered disabled state
+[ 2002.746279] br-6df3270afec8: port 7(vethbc3e3c5) entered blocking state
+[ 2002.746282] br-6df3270afec8: port 7(vethbc3e3c5) entered forwarding state
+[ 2003.064167] eth0: renamed from veth9729246
+[ 2003.880016] br-6df3270afec8: port 5(vethd032717) entered disabled state (repeated 3 times)
+[ 2004.243913] br-6df3270afec8: port 5(veth22ee6a6) entered blocking state
+[ 2004.243917] br-6df3270afec8: port 5(veth22ee6a6) entered disabled state
+[ 2004.244310] br-6df3270afec8: port 5(veth22ee6a6) entered blocking state
+[ 2004.244314] br-6df3270afec8: port 5(veth22ee6a6) entered forwarding state
+[ 2004.496235] eth0: renamed from veth0f450c2
+[ 2004.564409] br-6df3270afec8: port 2(vethd8ab919) entered disabled state (repeated 3 times)
+[ 2005.008111] br-6df3270afec8: port 7(vethbc3e3c5) entered disabled state (repeated 3 times)
+[ 2005.310299] br-6df3270afec8: port 2(veth18c388e) entered blocking state
+[ 2005.310303] br-6df3270afec8: port 2(veth18c388e) entered disabled state
+[ 2005.310729] br-6df3270afec8: port 2(veth18c388e) entered blocking state
+[ 2005.310732] br-6df3270afec8: port 2(veth18c388e) entered forwarding state
+[ 2005.376745] br-6df3270afec8: port 7(veth7e1fe1e) entered blocking state
+[ 2005.376750] br-6df3270afec8: port 7(veth7e1fe1e) entered disabled state
+[ 2005.376972] br-6df3270afec8: port 7(veth7e1fe1e) entered blocking state
+[ 2005.376976] br-6df3270afec8: port 7(veth7e1fe1e) entered forwarding state
+[ 2005.584170] eth0: renamed from veth5d5063d
+[ 2005.624450] br-6df3270afec8: port 7(veth7e1fe1e) entered disabled state
+[ 2005.660177] eth0: renamed from vethc2c39f7
+[ 2005.684190] br-6df3270afec8: port 7(veth7e1fe1e) entered blocking state
+[ 2005.684194] br-6df3270afec8: port 7(veth7e1fe1e) entered forwarding state
+[ 2006.163223] br-6df3270afec8: port 5(veth22ee6a6) entered disabled state (repeated 3 times)
+[ 2006.958498] br-6df3270afec8: port 5(veth6a83563) entered blocking state
+[ 2006.958502] br-6df3270afec8: port 5(veth6a83563) entered disabled state
+[ 2006.958944] br-6df3270afec8: port 5(veth6a83563) entered blocking state
+[ 2006.958947] br-6df3270afec8: port 5(veth6a83563) entered forwarding state
+[ 2007.168154] br-6df3270afec8: port 5(veth6a83563) entered disabled state
+[ 2007.256545] eth0: renamed from veth656f7a8
+[ 2007.276539] br-6df3270afec8: port 5(veth6a83563) entered blocking state
+[ 2007.276542] br-6df3270afec8: port 5(veth6a83563) entered forwarding state
+[ 2007.304046] br-6df3270afec8: port 2(veth18c388e) entered disabled state (repeated 3 times)
+[ 2008.860592] br-6df3270afec8: port 2(veth6f6dac9) entered blocking state
+[ 2008.860596] br-6df3270afec8: port 2(veth6f6dac9) entered disabled state
+[ 2008.860819] br-6df3270afec8: port 2(veth6f6dac9) entered blocking state
+[ 2008.860822] br-6df3270afec8: port 2(veth6f6dac9) entered forwarding state
+[ 2009.124896] eth0: renamed from veth3df2bf3
+[ 2015.356048] br-6df3270afec8: port 8(veth1449bc4) entered blocking state
+[ 2015.356051] br-6df3270afec8: port 8(veth1449bc4) entered disabled state
+[ 2015.624116] eth0: renamed from vetha460021
+[ 2015.656198] br-6df3270afec8: port 8(veth1449bc4) entered blocking state
+[ 2015.656201] br-6df3270afec8: port 8(veth1449bc4) entered forwarding state
+[ 2016.019582] br-6df3270afec8: port 8(veth1449bc4) entered disabled state (repeated 3 times)
+[ 2018.647999] br-6df3270afec8: port 2(veth6f6dac9) entered disabled state (repeated 3 times)
+
+########## wireless info END ############
+

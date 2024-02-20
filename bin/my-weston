@@ -1,0 +1,3 @@
+#!/bin/bash
+weston --width=550 --height=825
+

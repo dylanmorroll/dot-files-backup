@@ -1,0 +1,36 @@
+#!/bin/sh -Eeu
+
+interactive=false
+
+if [ $# -eq 1 ] && [ "$1" = "interactive" ]; then
+    interactive=true
+fi
+
+WAYDROID_FILES=$(printf "%s\n%s\n" ~/.local/share/applications/?aydroid*.desktop ~/.local/share/applications/?aydroid*.desktop.disabled)
+
+FILE_LIST=
+for line in ${WAYDROID_FILES}; do
+    if [ -f "${line}" ]; then
+        [ -z "${FILE_LIST}" ] && FILE_LIST="${line}" || FILE_LIST="${FILE_LIST}\n${line}"
+    fi
+done
+
+if [ "$interactive" = true ]; then
+    SELECTED_FILES=$(echo "${FILE_LIST}" | fzf -m --cycle)
+else
+    SELECTED_FILES=$(echo "${FILE_LIST}")
+fi
+
+echo "SELECTED_FILES $SELECTED_FILES"
+
+for selection in ${SELECTED_FILES}; do
+    if [ -z "${selection##*.desktop}" ]; then
+        echo "Disabling ${selection}..."
+        mv "${selection}" "${selection}.disabled"
+        ln -s /dev/null "${selection}"
+    elif [ -z "${selection##*.desktop.disabled}" ]; then
+        echo "Enabling ${selection}..."
+        mv "${selection}" "${selection%.disabled}"
+    fi
+done
+
