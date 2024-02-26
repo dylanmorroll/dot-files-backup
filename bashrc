@@ -328,17 +328,18 @@ export SP_PASSWORD=Elloh123!
 
 __prod_cluster=gke_smart-building-platform_europe-west4-a_sbp
 __test_cluster=gke_smart-building-platform-test_europe-west4-a_sbp-test
-
 # two short aliases for manual cluster change
-ctx_prod=--context=$__prod_cluster
-ctx_test=--context=$__test_cluster
+prod_ctxt=$(echo --context=$__prod_cluster)
+test_ctxt=$(echo --context=$__test_cluster)
 
+# aliases
 alias auth-pg="kbl sec get biz-apps client-database-config data --context='$__prod_cluster'"
 alias auth-pg-test="kbl sec get biz-apps test-client-database-config data --context='$__test_cluster'"
 alias auth-ts="kbl sec get lb authentication-service-config data --context='$__prod_cluster'"
 alias auth-ts-test="kbl sec get lb authentication-service-config data --context='$__test_cluster'"
 alias auth-keycloak="kbl sec get infra keycloak --context='$__prod_cluser'"
 alias auth-keycloak-test="kbl sec get infra keycloak-test --context='$__test_cluser'"
+alias rabbitmq-docker="docker-compose -f ~/Spectral/coding_tools/dockers/rabbitmq/docker-compose.yaml up"
 
 # use context in timescale so we can mix and match - remove when full transfer to test cluster is over
 alias port-forward-tsdataservice="kubectl -n lb port-forward svc/timeseries-io-tsdataservice 5003:5000 --context='$__prod_cluster'"
@@ -520,9 +521,13 @@ __kbl_sec_replace() {
             local file_name=$3
             local local_file_name=$4
         fi
-    
-        kubectl -n $namespace delete secret $secret_name
-        kubectl -n $namespace create secret generic $secret_name --from-file=${file_name}=${local_file_name}
+        
+        if test -f $local_file_name; then
+            kubectl -n $namespace delete secret $secret_name
+            kubectl -n $namespace create secret generic $secret_name --from-file=${file_name}=${local_file_name}
+        else
+            echo "Local file ${local_file_name} not found. Local file needed before deleting secret to ensure secret isn't lost."
+        fi
     	
     else
         echo "kbl sec rep namespace secret_name [file_name] [local_file_name]"
@@ -673,74 +678,5 @@ __kbl_context() {
         # gcloud config configurations activate sbp
         kubectl config use-context gke_smart-building-platform_europe-west4-a_sbp
     fi
-}
-
-# delete after backup
-kbl_create() {
-    if (( $# >= 2 & $# <=4 )); then
-        if (( $# == 2 )); then
-            local namespace=$1
-            local secret_name=$2
-            local file_name=settings\.yaml
-            local local_file_name=${secret_name}\.yaml
-        
-        elif (( $# == 3 )); then
-            local namespace=$1
-            local secret_name=$2
-            local file_name=$3
-            local local_file_name=${secret_name}\.yaml
-        
-        elif (( $# == 4 )); then
-            local namespace=$1
-            local secret_name=$2
-            local file_name=$3
-            local local_file_name=$4
-        fi
-    
-        kubectl -n $namespace create secret generic $secret_name --from-file=${file_name}=${local_file_name}
-    	
-    else
-        echo "Illegal number of parameters"
-    fi
-}
-
-# ------------------------------ old ------------------------------
-_kbl_get_args() {
-	if (( $# == 3 )); then
-		echo "$1 $2 $3"
-	elif (( $# == 2 )); then
-		echo "$1 $2 \.env"
-	elif (( $# == 1 )); then
-		echo "sbp $1 \.env"
-	else
-		echo "Illegal number of parameters"
-	fi
-}
-
-_old_kbl_get() {
-	local result=$(_kbl_get_args $@)
-	local vals=($result)
-	# local statement="kubectl -n ${vals[0]} get secret ${vals[1]} -o jsonpath=\"{.data.${vals[2]}}\" | base64 -d"
-	# echo $statement
-	
-	kubectl -n ${vals[0]} get secret ${vals[1]} -o jsonpath="{.data.${vals[2]}}" | base64 -d; echo
-	
-	# potentially replace 'get' with 'edit' for vim on line 8 and edit secret in place
-}
-
-_kbl_create() {
-    local result=$(kbl_get_args $@)
-    local vals=($result)
-    local statement="kubectl -n ${vals[0]} create secret generic ${vals[1]} --from-file=${vals[2]}} | base64"
-    echo $statement
-    $statement
-}
-
-_kbl_delete_create() {
-    local result=$(kbl_get_args $@)
-    local vals=($result)
-    local statement="kubectl -n ${vals[0]} get secret ${vals[1]} -o jsonpath="{.data.${vals[2]}}" | base64"
-    echo $statement
-    $statement
 }
 

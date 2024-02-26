@@ -2,7 +2,7 @@
 
 printf -v today '%(%Y-%m-%d %H:%M:%S)T\n' -1
 
-cd /mnt/E6E09277E0924DA5/.LocalBackups/joplin/automated-backup
+cd /home/dylan/Documents/.GitBackups/joplin-backup
 git add *
 git cm -m "$today joplin-git-backup script committing current state of automated-backup"
 git push
