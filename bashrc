@@ -160,7 +160,10 @@ alias ter='gnome-terminal . & disown'
 
 
 # ----------------------------------------------------- scripts -----------------------------------------------------  
-alias unzip_all='for z in *.zip; do unzip "$z" -d "${z%".zip"}"; done'
+# NB: below ${STR#.*} notation is known as POSIX string splitting
+# quotes needed to filename isn't split on spaces - double quotes needed as alias uses single quotes
+alias unzip_all='for z in *.zip; do unzip "$z" -d "${z%.zip}"; done'
+alias flac_to_mp3_all='for f in *.flac; do ffmpeg -i "$f" -ab 320k "${f%.flac}.mp3"; done'
 
 daemons() {
     ps -eo 'tty,pid,comm' | grep ^?
