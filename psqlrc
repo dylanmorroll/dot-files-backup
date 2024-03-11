@@ -1,3 +1,5 @@
-\set bv '\'5dab832c-6366-481f-8293-74a9ab0c61ab\''
-\set am '\'199f65e5-281c-4a09-b12f-a7db09b83c4d\''
+# TODO is there any easier way to set variables than having to escape quotation marks?
+#  you need a quotation mark otherwise it's substituted as a number
+\set bv '''5dab832c-6366-481f-8293-74a9ab0c61ab'''
+\set am '''199f65e5-281c-4a09-b12f-a7db09b83c4d'''
 
