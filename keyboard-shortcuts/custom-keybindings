@@ -1,0 +1,19 @@
+[custom0]
+binding='<Super>r'
+command='gnome-terminal'
+name='Terminal'
+
+[custom1]
+binding='<Super>d'
+command='bash switch-sink'
+name='Switch sink'
+
+[custom3]
+binding='<Super>t'
+command='gnome-tweaks'
+name='Tweaks'
+
+[custom4]
+binding='<Shift><Super>s'
+command='gnome-screenshot -ac'
+name='Screenshot selection copy'

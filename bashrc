@@ -174,6 +174,7 @@ daemonsv2() {
 myfind() {
     if (( $# < 2 )); then
         echo "myfind location arg"
+        echo "- arg can be regex, like *.desktop"
         return
     fi
     local location=$1
@@ -194,7 +195,7 @@ parse_dockerfile() {
     # parse Dockerfile in current folder and echo python version number
     if (( $# != 1 )); then
         echo "parse_dockerfile file"
-        return
+        exit 1
     fi
 
     local file=$1
@@ -276,7 +277,7 @@ pyenv_create_env() {
 pyenv_create_latest() {
     # take latest version of supplied python regex and create env using folder name
     if (( $# != 1 )); then
-        echo "pyenv_install_latest python_version"
+        echo "pyenv_create_latest python_version"
     fi
     local python_version_string=$1
     local latest_remote=$(pyenv_get_latest_remote $python_version_string)
@@ -287,6 +288,8 @@ pyenv_create_latest() {
 pyenv_create_from_dockerfile() {
     # take python version from dockerfile and create env using version as regex and folder name
     local python_version_string=$(parse_dockerfile Dockerfile)
+    # TODO figure out how to exit script if parse_dockerfile failed
+    #  set -e didn't work, maybe cause I capture the output, what about create_latest < dockerfile?
     pyenv_create_latest $python_version_string
 }
 
@@ -314,7 +317,7 @@ git_clone_setup() {
     local folder_name=${url_without_ext##*/}
     git clone $url && cd $folder_name
     
-    pyenv_dockerfile
+    pyenv_create_from_dockerfile
 }
 
 
@@ -669,16 +672,15 @@ __kbl_job_get() {
 __kbl_context() {
     if (( $# == 0 )); then
         kubectl config get-contexts | sed -e "s/gke_smart-building-platform-test_europe-west4-a_sbp-test/test                                                    /g" -e "s/gke_smart-building-platform_europe-west4-a_sbp/prod                                          /g"
-    # TODO I've commented out the gcloud stuff for now as it's fucked for some reason and I don't currently need it, from Jerome:
-    # > Well then you have your kubernetes environment pointing somewhere, but your GCloud environment poiting somewhere else,
-    # > which can be a problem if you want to create or interact with elements that are in GCP and not in Kubernetes (persistent volumes, ingress, service accounts etc.)
+
+    # the set-quota-project will only work if I have access to the quota limited API
     elif [[ $1 == "test" ]]; then
         # gcloud auth application-default set-quota-project smart-building-platform-test
-        # gcloud config configurations activate sbp-test
+        gcloud config configurations activate sbp-test
         kubectl config use-context gke_smart-building-platform-test_europe-west4-a_sbp-test
     elif [[ $1 == "prod" ]]; then
         # gcloud auth application-default set-quota-project smart-building-platform
-        # gcloud config configurations activate sbp
+        gcloud config configurations activate sbp-prod
         kubectl config use-context gke_smart-building-platform_europe-west4-a_sbp
     fi
 }
