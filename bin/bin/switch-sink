@@ -7,10 +7,6 @@ printf '%s\n' "${sinks[@]}"
 
 # sometimes all sinks are listed as SUSPENDED? what should I do then?
 
-ri=0
-running_sindex=0
-running_name=default
-
 length=${#sinks[@]}
 
 for ((i=0;i<=length-1;i++)); do
@@ -26,14 +22,20 @@ for ((i=0;i<=length-1;i++)); do
     fi
 done
 
-printf "currently RUNNING sink index\t%s %s\n" $running_sindex $running_name
+printf "RUNNING sink:\t%s %s\n" $running_sindex $running_name
 
-nexti=$(((ri+1) % length))
+if [ -z ${ri+x} ]; then
+    echo "RUNNING not found, setting to first sink"
+    nexti=0
+else
+    nexti=$(((ri+1) % length))
+fi
+
 next_sink=(${sinks[nexti]})
 next_index=${next_sink[0]}
 next_name=${next_sink[1]}
 
-printf "changing to:\t\t\t%s %s\n" $next_index $next_name
+printf "changing to:\t%s %s\n" $next_index $next_name
 
 pactl set-default-sink $next_name
 
