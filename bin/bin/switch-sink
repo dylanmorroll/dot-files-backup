@@ -5,32 +5,49 @@ readarray -t sinks < <(pactl list short sinks)
 echo sinks:
 printf '%s\n' "${sinks[@]}"
 
-# sometimes all sinks are listed as SUSPENDED? what should I do then?
+# sometimes even if a sink is active it's listed as IDLE or SUSPENDED if no music is playing (particularly after a restart)
+# there might be something in pactl list that indicates it, as I'm not sure if the sinks themselves do?
 
 length=${#sinks[@]}
 
-for ((i=0;i<=length-1;i++)); do
-    sink=(${sinks[$i]})
-    sindex=${sink[0]}
-    name=${sink[1]}
-    status=${sink[6]}
-    
-    if [[ $status == "RUNNING" ]]; then
-        ri=$i
-        running_sindex=$sindex
-        running_name=$name
+find_sink() {
+    if (( $# != 1 )); then
+         find_sink status_match
     fi
-done
 
+    local status_match=$1
+
+    for ((i=0;i<=length-1;i++)); do
+        local sink=(${sinks[$i]})
+        local sindex=${sink[0]}
+        local name=${sink[1]}
+        local status=${sink[6]}
+    
+        if [[ $status == $status_match ]]; then
+            ri=$i
+            running_sindex=$sindex
+            running_name=$name
+        fi
+    done
+}
+
+find_sink RUNNING
 printf "RUNNING sink:\t%s %s\n" $running_sindex $running_name
 
 if [ -z ${ri+x} ]; then
-    echo "RUNNING not found, setting to first sink"
-    nexti=0
-else
-    nexti=$(((ri+1) % length))
+    echo "RUNNING not found, using IDLE instead"
+    find_sink IDLE
+    printf "IDLE sink:\t%s %s\n" $running_sindex $running_name
 fi
 
+if [ -z ${ri+x} ]; then
+    # we use the second one to kick start our bluetooth device
+    # in the event that all sinks are listed as SUSPENDED
+    echo "RUNNING  still not found, setting to second sink (if available)"
+    ri=0
+fi
+
+nexti=$(((ri+1) % length))
 next_sink=(${sinks[nexti]})
 next_index=${next_sink[0]}
 next_name=${next_sink[1]}
