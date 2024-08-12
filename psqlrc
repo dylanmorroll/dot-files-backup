@@ -1,3 +1,6 @@
+-- hide 'Output format is wrapped.' etc. from every psql command
+\set QUIET on
+
 -- to wrap output
 \pset format wrapped
 -- to use ellipses instead of dots

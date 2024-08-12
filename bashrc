@@ -145,7 +145,7 @@ export RESTIC_REPOSITORY='s3:s3.eu-central-003.backblazeb2.com/work-linux-backup
 export RESTIC_PASSWORD='IA&ld4v!BHY0WJ!noc5ZEzy*gRyPpOEOqZX5KM4$KFYb45nY*4'
 
 # custom path
-PATH=$PATH:/home/dylan/.local/bin
+PATH=$PATH:/home/dylan/bin:/home/dylan/.local/bin
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # general stuff
@@ -345,7 +345,7 @@ alias auth-ts="kbl sec get lb authentication-service-config data --context='$__p
 alias auth-ts-test="kbl sec get lb authentication-service-config data --context='$__test_cluster'"
 alias auth-keycloak="kbl sec get infra keycloak --context='$__prod_cluser'"
 alias auth-keycloak-test="kbl sec get infra keycloak-test --context='$__test_cluser'"
-alias rabbitmq-docker="docker-compose -f ~/Spectral/coding_tools/dockers/rabbitmq/docker-compose.yaml up"
+alias rabbitmq-docker="docker compose -f ~/Spectral/coding_tools/dockers/rabbitmq/docker-compose.yaml up"
 
 # use context in timescale so we can mix and match - remove when full transfer to test cluster is over
 alias port-forward-tsdataservice="kubectl -n lb port-forward svc/timeseries-io-tsdataservice 5003:5000 --context='$__prod_cluster'"

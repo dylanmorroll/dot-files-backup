@@ -1,9 +1,9 @@
 #!/bin/sh -Eeu
 
-interactive=false
+all=false
 
-if [ $# -eq 1 ] && [ "$1" = "interactive" ]; then
-    interactive=true
+if [ $# -eq 1 ] && [ "$1" = "all" ]; then
+    all=true
 fi
 
 WAYDROID_FILES=$(printf "%s\n%s\n" ~/.local/share/applications/?aydroid*.desktop ~/.local/share/applications/?aydroid*.desktop.disabled)
@@ -15,7 +15,7 @@ for line in ${WAYDROID_FILES}; do
     fi
 done
 
-if [ "$interactive" = true ]; then
+if [ "$all" = false ]; then
     SELECTED_FILES=$(echo "${FILE_LIST}" | fzf -m --cycle)
 else
     SELECTED_FILES=$(echo "${FILE_LIST}")
